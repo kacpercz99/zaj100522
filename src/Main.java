@@ -42,5 +42,22 @@ public class Main {
         tabPub[2] = new Publication("sss", "hmmy003", 23, 100);
         ArrayOfPublicationsMethods.showPublications(tabPub);
         System.out.println("Calkowity dochod: " + ArrayOfPublicationsMethods.calculateTotalIncome(tabPub));
+
+        //zad3
+    }
+
+    public static int wyznaczIndeksWiersaZMinSuma(int[][] matrix) {
+        int minSum = Arrays.stream(matrix[0]).sum();
+        int minIndex = 0;
+        for(int i = 1, sum = 0; i < matrix.length; i++, sum = 0){
+            for(int j = 0; j<matrix[i].length; j++) {
+                sum+=matrix[i][j];
+            }
+            if(sum < minSum) {
+                minSum = sum;
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 }
